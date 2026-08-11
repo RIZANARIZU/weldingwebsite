@@ -1,0 +1,242 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+{% block title %}
+SpecMetal Works
+{% endblock %}
+</title>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+body{
+    background:#f5f5f5;
+    color:#333;
+}
+
+
+
+/* HEADER */
+
+header{
+
+    background:#111;
+    color:white;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 80px;
+
+}
+
+
+header h2{
+
+    color:#ff9800;
+
+}
+
+
+
+nav a{
+
+    color:white;
+    text-decoration:none;
+
+    margin-left:25px;
+
+    font-size:18px;
+
+}
+
+
+nav a:hover{
+
+    color:#ff9800;
+
+}
+
+
+
+/* BUTTON */
+
+
+.btn{
+
+    display:inline-block;
+
+    padding:14px 35px;
+
+    background:#ff9800;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:5px;
+
+}
+
+
+.btn:hover{
+
+    background:#e68900;
+
+}
+
+
+
+
+/* PAGE BANNER */
+
+
+.page-banner{
+
+    background:#111;
+
+    color:white;
+
+    text-align:center;
+
+    padding:80px 20px;
+
+}
+
+
+.page-banner h1{
+
+    font-size:45px;
+
+}
+
+
+
+/* FOOTER */
+
+
+footer{
+
+    background:#111;
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+
+    margin-top:50px;
+
+}
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:768px){
+
+
+header{
+
+    flex-direction:column;
+
+    padding:20px;
+
+}
+
+
+nav{
+
+    margin-top:15px;
+
+}
+
+
+nav a{
+
+    display:block;
+
+    margin:10px 0;
+
+}
+
+
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+
+<header>
+
+
+<h2>
+SpecMetal Works
+</h2>
+
+
+
+<nav>
+
+<a href="{% url 'home' %}">Home</a>
+
+<a href="{% url 'about' %}">About</a>
+
+<a href="{% url 'services' %}">Services</a>
+
+<a href="{% url 'projects' %}">Projects</a>
+
+<a href="{% url 'contact' %}">Contact</a>
+
+</nav>
+
+</header>
+
+
+
+
+
+{% block content %}
+
+{% endblock %}
+
+
+
+
+
+<footer>
+
+© 2026 SpecMetal Works | All Rights Reserved
+
+</footer>
+
+
+
+</body>
+
+</html>

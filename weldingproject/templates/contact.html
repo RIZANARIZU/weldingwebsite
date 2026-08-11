@@ -1,0 +1,592 @@
+{% extends 'style.html' %}
+
+{% block title %}
+Contact | SpecMetal Works
+{% endblock %}
+
+
+{% block content %}
+
+
+<style>
+
+.contact-box{
+
+    width:90%;
+    max-width:1000px;
+    background:white;
+    margin:40px auto;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+
+.contact-box h1{
+
+    text-align:center;
+    color:#ff9800;
+    margin-bottom:25px;
+
+}
+
+
+.contact-box h2{
+
+    margin-top:30px;
+    margin-bottom:15px;
+    color:#333;
+
+}
+
+
+.info{
+
+    font-size:18px;
+    margin:12px 0;
+
+}
+
+
+.info a{
+
+    color:#333;
+    text-decoration:none;
+
+}
+
+
+input,
+textarea{
+
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+
+}
+
+
+
+button{
+
+    background:#ff9800;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:5px;
+    cursor:pointer;
+
+}
+
+
+button:hover{
+
+    background:#d97706;
+
+}
+
+
+
+iframe{
+
+    width:100%;
+    height:350px;
+    border:0;
+    border-radius:10px;
+
+}
+
+
+#liveMap{
+
+    display:none;
+    margin-top:15px;
+
+}
+
+
+/* REVIEWS */
+
+
+.reviews{
+
+    margin-top:40px;
+    padding:30px;
+    background:#f5f5f5;
+    border-radius:10px;
+    text-align:center;
+
+}
+
+
+
+.review-cards{
+
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+
+}
+
+
+
+.review-card{
+
+    background:white;
+    width:280px;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+
+
+.review-card h3{
+
+    color:#ff9800;
+
+}
+
+
+
+.stars{
+
+    color:#ff9800;
+    font-size:25px;
+    margin:10px;
+
+}
+
+
+
+.rating{
+
+    margin-top:25px;
+    color:#ff9800;
+
+}
+
+
+</style>
+
+
+
+
+<div class="contact-box">
+
+
+<h1>
+Contact Us
+</h1>
+
+
+
+<div class="info">
+
+📍 <b>Location:</b>
+Coimbatore, Tamil Nadu, India
+
+</div>
+
+
+
+
+<div class="info">
+
+📞 <b>Phone:</b>
+
+<a href="tel:+918547423559">
+
++91 8547423559
+
+</a>
+
+</div>
+
+
+
+
+<div class="info">
+
+✉ <b>Email:</b>
+
+<a href="mailto:info@specmetalworks.com">
+
+info@specmetalworks.com
+
+</a>
+
+</div>
+
+
+
+
+<div class="info">
+
+🕒 <b>Working Hours:</b>
+
+Monday - Saturday (9 AM - 6 PM)
+
+</div>
+
+
+
+
+
+<h2>
+Your Current Location
+</h2>
+
+
+<input 
+type="text"
+id="location"
+readonly
+placeholder="Click button to get your location">
+
+
+
+<button type="button" onclick="getLocation()">
+
+Get Current Location
+
+</button>
+
+
+
+
+
+<h2>
+Your Location Map
+</h2>
+
+
+<iframe id="liveMap"></iframe>
+
+
+
+
+
+<h2>
+Company Location
+</h2>
+
+
+<iframe
+
+src="https://www.google.com/maps?q=Coimbatore,Tamil%20Nadu,India&output=embed">
+
+</iframe>
+
+
+
+
+
+
+<h2>
+Send Message
+</h2>
+
+
+
+{% if success %}
+
+<p style="color:green;font-weight:bold;">
+
+✅ Message sent successfully
+
+</p>
+
+{% endif %}
+
+
+
+
+
+<form method="POST">
+
+{% csrf_token %}
+
+
+
+<input
+
+type="text"
+
+name="name"
+
+placeholder="Your Name"
+
+required>
+
+
+
+<input
+
+type="email"
+
+name="email"
+
+placeholder="Your Email"
+
+required>
+
+
+
+
+<input
+
+type="tel"
+
+name="phone"
+
+placeholder="Phone Number"
+
+required>
+
+
+
+
+
+<input
+
+type="text"
+
+name="location"
+
+placeholder="Your Location"
+
+required>
+
+
+
+
+
+<textarea
+
+name="message"
+
+rows="5"
+
+placeholder="Your Message"
+
+required></textarea>
+
+
+
+
+<button type="submit">
+
+Send Message
+
+</button>
+
+
+
+</form>
+
+
+
+
+
+
+
+
+<!-- CUSTOMER REVIEWS -->
+
+
+<section class="reviews">
+
+
+<h2>
+Customer Reviews
+</h2>
+
+
+
+
+<div class="review-cards">
+
+
+
+{% for review in reviews %}
+
+
+
+<div class="review-card">
+
+
+
+<h3>
+
+{{review.name}}
+
+</h3>
+
+
+
+
+<div class="stars">
+
+
+{% if review.rating == 5 %}
+
+★★★★★
+
+
+{% elif review.rating == 4 %}
+
+★★★★☆
+
+
+{% elif review.rating == 3 %}
+
+★★★☆☆
+
+
+{% elif review.rating == 2 %}
+
+★★☆☆☆
+
+
+{% else %}
+
+★☆☆☆☆
+
+
+{% endif %}
+
+
+
+</div>
+
+
+
+
+<p>
+
+{{review.message}}
+
+</p>
+
+
+
+
+</div>
+
+
+
+{% empty %}
+
+
+
+<p>
+No Reviews Available
+</p>
+
+
+
+{% endfor %}
+
+
+
+
+</div>
+
+
+
+
+
+<h3 class="rating">
+
+Overall Rating ⭐ {{average_rating}} / 5
+
+</h3>
+
+
+
+</section>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+function getLocation(){
+
+
+if(navigator.geolocation){
+
+
+navigator.geolocation.getCurrentPosition(showPosition);
+
+
+}
+
+else{
+
+
+alert("Location not supported");
+
+
+}
+
+
+}
+
+
+
+
+
+function showPosition(position){
+
+
+let lat = position.coords.latitude;
+
+let lon = position.coords.longitude;
+
+
+
+document.getElementById("location").value =
+
+lat + " , " + lon;
+
+
+
+
+let map=document.getElementById("liveMap");
+
+
+
+map.src =
+
+"https://www.google.com/maps?q="+lat+","+lon+"&output=embed";
+
+
+
+map.style.display="block";
+
+
+}
+
+
+
+</script>
+
+
+
+{% endblock %}

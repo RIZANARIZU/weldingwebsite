@@ -1,0 +1,198 @@
+{% extends 'style.html' %}
+
+
+{% block content %}
+
+
+
+<section class="banner">
+
+<h1>
+About Us
+</h1>
+
+</section>
+
+
+
+
+<section class="about-section">
+
+
+<div class="about-image">
+
+<img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900"
+alt="Fabrication">
+
+</div>
+
+
+
+
+<div class="about-content">
+
+
+<h2>
+Who We Are
+</h2>
+
+
+
+<p>
+
+SpecMetal Works is a professional fabrication and welding company
+providing high-quality metal solutions for residential, commercial,
+and industrial projects.
+
+</p>
+
+
+
+
+<ul>
+
+<li>Experienced Welding Professionals</li>
+
+<li>Quality Steel Fabrication</li>
+
+<li>Custom Metal Design</li>
+
+<li>Reliable Project Completion</li>
+
+</ul>
+
+
+
+</div>
+
+
+</section>
+
+
+
+<style>
+
+
+.banner{
+
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:45px;
+
+}
+
+
+.banner h1{
+
+    font-size:35px;
+
+}
+
+
+
+.about-section{
+
+    display:flex;
+    align-items:center;
+    gap:50px;
+    padding:60px;
+    background:white;
+
+}
+
+
+
+.about-image img{
+
+    width:500px;
+    height:320px;
+    object-fit:cover;
+    border-radius:10px;
+
+}
+
+
+
+.about-content{
+
+    flex:1;
+
+}
+
+
+
+.about-content h2{
+
+    font-size:32px;
+    margin-bottom:20px;
+
+}
+
+
+
+.about-content p{
+
+    font-size:17px;
+    line-height:1.7;
+    color:#555;
+
+}
+
+
+
+.about-content ul{
+
+    margin-top:20px;
+
+}
+
+
+
+.about-content li{
+
+    list-style:none;
+    margin:12px 0;
+    font-size:16px;
+
+}
+
+
+
+.about-content li::before{
+
+    content:"✓ ";
+    color:#ff9800;
+    font-weight:bold;
+
+}
+
+
+
+@media(max-width:768px){
+
+
+.about-section{
+
+    flex-direction:column;
+    padding:30px;
+
+}
+
+
+.about-image img{
+
+    width:100%;
+    height:auto;
+
+}
+
+
+}
+
+
+</style>
+
+
+
+{% endblock %}

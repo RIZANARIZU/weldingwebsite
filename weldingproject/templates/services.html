@@ -1,0 +1,196 @@
+{% extends 'style.html' %}
+
+
+{% block content %}
+
+
+<style>
+
+.banner{
+
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:50px;
+
+}
+
+
+.banner h1{
+
+    font-size:40px;
+
+}
+
+
+
+.services{
+
+    padding:70px 8%;
+    text-align:center;
+
+}
+
+
+.services h2{
+
+    font-size:35px;
+    margin-bottom:40px;
+
+}
+
+
+
+.cards{
+
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+
+}
+
+
+
+.card{
+
+    background:white;
+    width:300px;
+    padding:35px;
+    border-radius:10px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}
+
+
+
+.card h3{
+
+    color:#ff9800;
+    margin-bottom:15px;
+    font-size:24px;
+
+}
+
+
+
+.card p{
+
+    color:#555;
+    line-height:1.7;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-10px);
+    transition:.3s;
+
+}
+
+
+</style>
+
+
+
+
+<section class="banner">
+
+<h1>
+Our Services
+</h1>
+
+</section>
+
+
+
+
+<section class="services">
+
+
+<h2>
+What We Provide
+</h2>
+
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+<h3>
+Steel Fabrication
+</h3>
+
+<p>
+High quality structural steel fabrication
+for residential, commercial and industrial projects.
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+Welding Works
+</h3>
+
+<p>
+Professional MIG, TIG and ARC welding
+with experienced welding specialists.
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+Custom Metal Works
+</h3>
+
+<p>
+Custom gates, railings, staircases and
+special metal designs.
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+Industrial Maintenance
+</h3>
+
+<p>
+Machine repair, maintenance and industrial
+metal solutions.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+{% endblock %}
