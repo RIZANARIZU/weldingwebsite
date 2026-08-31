@@ -1,3 +1,4 @@
+```html
 {% extends 'style.html' %}
 
 {% block title %}
@@ -58,16 +59,17 @@ Contact | SpecMetal Works
 
 
 input,
-textarea{
+textarea,
+select{
 
     width:100%;
     padding:12px;
     margin:10px 0;
     border:1px solid #ccc;
     border-radius:5px;
+    box-sizing:border-box;
 
 }
-
 
 
 button{
@@ -87,7 +89,6 @@ button:hover{
     background:#d97706;
 
 }
-
 
 
 iframe{
@@ -110,7 +111,6 @@ iframe{
 
 /* REVIEWS */
 
-
 .reviews{
 
     margin-top:40px;
@@ -122,6 +122,17 @@ iframe{
 }
 
 
+.review-form{
+
+    max-width:600px;
+    margin:0 auto 35px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.10);
+
+}
+
 
 .review-cards{
 
@@ -131,7 +142,6 @@ iframe{
     flex-wrap:wrap;
 
 }
-
 
 
 .review-card{
@@ -145,13 +155,11 @@ iframe{
 }
 
 
-
 .review-card h3{
 
     color:#ff9800;
 
 }
-
 
 
 .stars{
@@ -163,7 +171,6 @@ iframe{
 }
 
 
-
 .rating{
 
     margin-top:25px;
@@ -171,10 +178,7 @@ iframe{
 
 }
 
-
 </style>
-
-
 
 
 <div class="contact-box">
@@ -185,15 +189,12 @@ Contact Us
 </h1>
 
 
-
 <div class="info">
 
 📍 <b>Location:</b>
 Coimbatore, Tamil Nadu, India
 
 </div>
-
-
 
 
 <div class="info">
@@ -209,8 +210,6 @@ Coimbatore, Tamil Nadu, India
 </div>
 
 
-
-
 <div class="info">
 
 ✉ <b>Email:</b>
@@ -224,8 +223,6 @@ info@specmetalworks.com
 </div>
 
 
-
-
 <div class="info">
 
 🕒 <b>Working Hours:</b>
@@ -235,30 +232,25 @@ Monday - Saturday (9 AM - 6 PM)
 </div>
 
 
-
-
-
 <h2>
 Your Current Location
 </h2>
 
 
-<input 
+<input
 type="text"
 id="location"
 readonly
 placeholder="Click button to get your location">
 
 
-
-<button type="button" onclick="getLocation()">
+<button
+type="button"
+onclick="getLocation()">
 
 Get Current Location
 
 </button>
-
-
-
 
 
 <h2>
@@ -269,29 +261,19 @@ Your Location Map
 <iframe id="liveMap"></iframe>
 
 
-
-
-
 <h2>
 Company Location
 </h2>
 
 
 <iframe
-
 src="https://www.google.com/maps?q=Coimbatore,Tamil%20Nadu,India&output=embed">
-
 </iframe>
-
-
-
-
 
 
 <h2>
 Send Message
 </h2>
-
 
 
 {% if success %}
@@ -305,79 +287,49 @@ Send Message
 {% endif %}
 
 
-
-
-
 <form method="POST">
 
 {% csrf_token %}
 
+<input
+type="hidden"
+name="form_type"
+value="contact">
 
 
 <input
-
 type="text"
-
 name="name"
-
 placeholder="Your Name"
-
 required>
 
 
-
 <input
-
 type="email"
-
 name="email"
-
 placeholder="Your Email"
-
 required>
 
 
-
-
 <input
-
 type="tel"
-
 name="phone"
-
 placeholder="Phone Number"
-
 required>
-
-
-
 
 
 <input
-
 type="text"
-
 name="location"
-
 placeholder="Your Location"
-
 required>
-
-
-
 
 
 <textarea
-
 name="message"
-
 rows="5"
-
 placeholder="Your Message"
-
 required></textarea>
-
-
 
 
 <button type="submit">
@@ -387,14 +339,7 @@ Send Message
 </button>
 
 
-
 </form>
-
-
-
-
-
-
 
 
 <!-- CUSTOMER REVIEWS -->
@@ -408,27 +353,109 @@ Customer Reviews
 </h2>
 
 
+<!-- REVIEW FORM -->
+
+
+<div class="review-form">
+
+
+{% if review_success %}
+
+<p style="color:green;font-weight:bold;">
+
+✅ Thank you! Your review has been submitted.
+
+</p>
+
+{% endif %}
+
+
+<form method="POST">
+
+{% csrf_token %}
+
+
+<input
+type="hidden"
+name="form_type"
+value="review">
+
+
+<input
+type="text"
+name="review_name"
+placeholder="Your Name"
+required>
+
+
+<select
+name="rating"
+required>
+
+<option value="">
+Select Rating
+</option>
+
+<option value="5">
+★★★★★ - Excellent
+</option>
+
+<option value="4">
+★★★★☆ - Very Good
+</option>
+
+<option value="3">
+★★★☆☆ - Good
+</option>
+
+<option value="2">
+★★☆☆☆ - Average
+</option>
+
+<option value="1">
+★☆☆☆☆ - Poor
+</option>
+
+</select>
+
+
+<textarea
+name="review_message"
+rows="4"
+placeholder="Write your review..."
+required></textarea>
+
+
+<button type="submit">
+
+Submit Review
+
+</button>
+
+
+</form>
+
+
+</div>
+
+
+<!-- REVIEWS LIST -->
 
 
 <div class="review-cards">
 
 
-
 {% for review in reviews %}
-
 
 
 <div class="review-card">
 
 
-
 <h3>
 
-{{review.name}}
+{{ review.name }}
 
 </h3>
-
-
 
 
 <div class="stars">
@@ -438,89 +465,65 @@ Customer Reviews
 
 ★★★★★
 
-
 {% elif review.rating == 4 %}
 
 ★★★★☆
-
 
 {% elif review.rating == 3 %}
 
 ★★★☆☆
 
-
 {% elif review.rating == 2 %}
 
 ★★☆☆☆
-
 
 {% else %}
 
 ★☆☆☆☆
 
-
 {% endif %}
 
 
-
 </div>
-
-
 
 
 <p>
 
-{{review.message}}
+{{ review.message }}
 
 </p>
 
 
-
-
 </div>
-
 
 
 {% empty %}
 
 
-
 <p>
-No Reviews Available
-</p>
 
+No Reviews Available
+
+</p>
 
 
 {% endfor %}
 
 
-
-
 </div>
-
-
-
 
 
 <h3 class="rating">
 
-Overall Rating ⭐ {{average_rating}} / 5
+Overall Rating ⭐ {{ average_rating }} / 5
 
 </h3>
-
 
 
 </section>
 
 
-
-
 </div>
-
-
-
-
-
 
 
 <script>
@@ -529,64 +532,61 @@ Overall Rating ⭐ {{average_rating}} / 5
 function getLocation(){
 
 
-if(navigator.geolocation){
+    if(navigator.geolocation){
 
 
-navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+
+    }
+
+
+    else{
+
+
+        alert("Location not supported");
+
+
+    }
 
 
 }
-
-else{
-
-
-alert("Location not supported");
-
-
-}
-
-
-}
-
-
-
 
 
 function showPosition(position){
 
 
-let lat = position.coords.latitude;
-
-let lon = position.coords.longitude;
+    let lat = position.coords.latitude;
 
 
-
-document.getElementById("location").value =
-
-lat + " , " + lon;
+    let lon = position.coords.longitude;
 
 
+    document.getElementById("location").value =
+
+        lat + " , " + lon;
 
 
-let map=document.getElementById("liveMap");
+    let map = document.getElementById("liveMap");
 
 
+    map.src =
 
-map.src =
+        "https://www.google.com/maps?q=" +
 
-"https://www.google.com/maps?q="+lat+","+lon+"&output=embed";
+        lat + "," + lon +
+
+        "&output=embed";
 
 
-
-map.style.display="block";
+    map.style.display = "block";
 
 
 }
 
 
-
 </script>
 
 
-
 {% endblock %}
+```

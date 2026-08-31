@@ -1,3 +1,4 @@
+
 from django.contrib import admin
 from .models import Project, Contact, Review
 
@@ -11,7 +12,6 @@ class ProjectAdmin(admin.ModelAdmin):
     )
 
 
-
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
 
@@ -22,13 +22,24 @@ class ContactAdmin(admin.ModelAdmin):
         'created_at',
     )
 
-
-
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
 
     list_display = (
         'name',
         'rating',
+        'message',
         'created_at',
     )
+
+    list_filter = (
+        'rating',
+        'created_at',
+    )
+
+    search_fields = (
+        'name',
+        'message',
+    )
+
+   
