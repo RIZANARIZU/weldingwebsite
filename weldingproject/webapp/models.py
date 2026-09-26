@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary_storage.storage import MediaCloudinaryStorage
 
 
 class Project(models.Model):
@@ -7,18 +8,22 @@ class Project(models.Model):
 
     description = models.TextField()
 
-    image = models.ImageField(upload_to='projects/')
+    image = models.ImageField(
+        upload_to='projects/',
+        storage=MediaCloudinaryStorage()
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
 
     edited_at = models.DateTimeField(auto_now=True)
 
-    deleted_at = models.DateTimeField(null=True, blank=True)
-
+    deleted_at = models.DateTimeField(
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
         return self.title
-
 
 
 class Contact(models.Model):
@@ -35,17 +40,13 @@ class Contact(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-
     def __str__(self):
         return self.name
-
-
 
 
 class Review(models.Model):
 
     name = models.CharField(max_length=100)
-
 
     rating = models.IntegerField(
         choices=[
@@ -57,12 +58,9 @@ class Review(models.Model):
         ]
     )
 
-
     message = models.TextField()
 
-
     created_at = models.DateTimeField(auto_now_add=True)
-
 
     def __str__(self):
         return self.name
