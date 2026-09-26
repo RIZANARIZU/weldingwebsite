@@ -1,22 +1,31 @@
-"""
-Django settings for weldingproject project.
-"""
-
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+# =========================================================
 # SECURITY
+# =========================================================
 
 SECRET_KEY = 'django-insecure-change-this-key'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["weldingwebsite-8qmh.onrender.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    "weldingwebsite-8qmh.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://weldingwebsite-8qmh.onrender.com",
+]
 
 
+# =========================================================
 # APPLICATIONS
+# =========================================================
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -26,11 +35,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Cloudinary
+    'cloudinary',
+    'cloudinary_storage',
+
+    # Your app
     'webapp',
 ]
 
 
+# =========================================================
 # MIDDLEWARE
+# =========================================================
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -43,19 +59,17 @@ MIDDLEWARE = [
 ]
 
 
+# =========================================================
+# URL / WSGI
+# =========================================================
+
 ROOT_URLCONF = 'weldingproject.urls'
-
-
-# TEMPLATES
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-
-        'DIRS': [BASE_DIR / "templates"],
-
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
-
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
@@ -66,11 +80,12 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'weldingproject.wsgi.application'
 
 
+# =========================================================
 # DATABASE
+# =========================================================
 
 DATABASES = {
     'default': {
@@ -80,7 +95,9 @@ DATABASES = {
 }
 
 
+# =========================================================
 # PASSWORD VALIDATION
+# =========================================================
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -98,7 +115,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# LANGUAGE
+# =========================================================
+# LANGUAGE / TIME
+# =========================================================
 
 LANGUAGE_CODE = 'en-us'
 
@@ -109,22 +128,63 @@ USE_I18N = True
 USE_TZ = True
 
 
+# =========================================================
 # STATIC FILES
+# =========================================================
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / 'static',
 ]
 
 
-# MEDIA FILES
+# =========================================================
+# CLOUDINARY
+# =========================================================
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get(
+        'CLOUDINARY_CLOUD_NAME',
+        'samvh4vf'
+    ),
+
+    'API_KEY': os.environ.get(
+        'CLOUDINARY_API_KEY',
+        '788882927778173'
+    ),
+
+    'API_SECRET': os.environ.get(
+        'CLOUDINARY_API_SECRET'
+    ),
+}
+
+
+# =========================================================
+# FILE STORAGE
+# Django 4.2+ / Django 6 compatible
+# =========================================================
+
+STORAGES = {
+    'default': {
+        'BACKEND': 'cloudinary_storage.storage.MediaCloudinaryStorage',
+    },
+
+    'staticfiles': {
+        'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
+    },
+}
+
+
+# =========================================================
+# MEDIA
+# =========================================================
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = BASE_DIR / "media"
 
-
+# =========================================================
 # DEFAULT PRIMARY KEY
+# =========================================================
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
