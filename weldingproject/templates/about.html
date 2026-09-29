@@ -1,198 +1,550 @@
 {% extends 'style.html' %}
 
+{% block title %}
+Spec1metalworks | About
+{% endblock %}
 
 {% block content %}
 
-
-
-<section class="banner">
-
-<h1>
-About Us
-</h1>
-
-</section>
-
-
-
-
-<section class="about-section">
-
-
-<div class="about-image">
-
-<img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900"
-alt="Fabrication">
-
-</div>
-
-
-
-
-<div class="about-content">
-
-
-<h2>
-Who We Are
-</h2>
-
-
-
-<p>
-
-SpecMetal Works is a professional fabrication and welding company
-providing high-quality metal solutions for residential, commercial,
-and industrial projects.
-
-</p>
-
-
-
-
-<ul>
-
-<li>Experienced Welding Professionals</li>
-
-<li>Quality Steel Fabrication</li>
-
-<li>Custom Metal Design</li>
-
-<li>Reliable Project Completion</li>
-
-</ul>
-
-
-
-</div>
-
-
-</section>
-
-
-
 <style>
 
-
-.banner{
-
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:45px;
-
+/* ABOUT HERO */
+.about-hero {
+    min-height: 55vh;
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.72),
+            rgba(0,0,0,0.72)
+        ),
+        url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1600");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 60px 20px;
 }
 
-
-.banner h1{
-
-    font-size:35px;
-
+.about-hero-content {
+    max-width: 850px;
 }
 
-
-
-.about-section{
-
-    display:flex;
-    align-items:center;
-    gap:50px;
-    padding:60px;
-    background:white;
-
+.about-label {
+    color: #ff9800;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 16px;
 }
 
-
-
-.about-image img{
-
-    width:500px;
-    height:320px;
-    object-fit:cover;
-    border-radius:10px;
-
+.about-hero h1 {
+    font-size: 55px;
+    font-weight: 800;
+    margin: 15px 0;
 }
 
-
-
-.about-content{
-
-    flex:1;
-
+.about-hero p {
+    font-size: 19px;
+    color: #ddd;
+    line-height: 1.7;
 }
 
-
-
-.about-content h2{
-
-    font-size:32px;
-    margin-bottom:20px;
-
+/* COMPANY STORY */
+.story-section {
+    padding: 90px 8%;
+    background: white;
 }
 
-
-
-.about-content p{
-
-    font-size:17px;
-    line-height:1.7;
-    color:#555;
-
+.story-container {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
 }
 
-
-
-.about-content ul{
-
-    margin-top:20px;
-
+.story-image img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
-
-
-.about-content li{
-
-    list-style:none;
-    margin:12px 0;
-    font-size:16px;
-
+.story-content span {
+    color: #ff9800;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
-
-
-.about-content li::before{
-
-    content:"✓ ";
-    color:#ff9800;
-    font-weight:bold;
-
+.story-content h2 {
+    font-size: 40px;
+    color: #222;
+    margin: 15px 0 20px;
 }
 
-
-
-@media(max-width:768px){
-
-
-.about-section{
-
-    flex-direction:column;
-    padding:30px;
-
+.story-content p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 17px;
+    margin-bottom: 15px;
 }
 
-
-.about-image img{
-
-    width:100%;
-    height:auto;
-
+/* EXPERIENCE */
+.experience-section {
+    background: #f5f5f5;
+    padding: 80px 8%;
 }
 
-
+.experience-container {
+    max-width: 1150px;
+    margin: auto;
+    text-align: center;
 }
 
+.experience-container h2 {
+    font-size: 40px;
+    color: #222;
+    margin: 15px 0 45px;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.experience-box {
+    background: white;
+    padding: 40px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.experience-box:hover {
+    transform: translateY(-8px);
+}
+
+.experience-box i {
+    font-size: 38px;
+    color: #ff9800;
+    margin-bottom: 20px;
+}
+
+.experience-box h3 {
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.experience-box p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* VALUES */
+.values-section {
+    background: #171717;
+    color: white;
+    padding: 90px 8%;
+}
+
+.values-container {
+    max-width: 1150px;
+    margin: auto;
+    text-align: center;
+}
+
+.values-container h2 {
+    font-size: 40px;
+    margin: 15px 0 45px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.value-box {
+    border: 1px solid #444;
+    padding: 35px 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.value-box:hover {
+    border-color: #ff9800;
+    transform: translateY(-5px);
+}
+
+.value-box i {
+    color: #ff9800;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.value-box h3 {
+    margin-bottom: 10px;
+}
+
+.value-box p {
+    color: #bbb;
+    line-height: 1.6;
+}
+
+/* CTA */
+.about-cta {
+    background: #ff9800;
+    color: white;
+    text-align: center;
+    padding: 75px 20px;
+}
+
+.about-cta h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.about-cta p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.about-cta a {
+    display: inline-block;
+    background: #111;
+    color: white;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.about-cta a:hover {
+    background: #333;
+    color: white;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+
+    .about-hero h1 {
+        font-size: 45px;
+    }
+
+    .story-container {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .about-hero {
+        min-height: 50vh;
+    }
+
+    .about-hero h1 {
+        font-size: 34px;
+    }
+
+    .about-hero p {
+        font-size: 16px;
+    }
+
+    .story-section,
+    .experience-section,
+    .values-section {
+        padding: 60px 20px;
+    }
+
+    .story-content h2,
+    .experience-container h2,
+    .values-container h2 {
+        font-size: 30px;
+    }
+
+    .story-image img {
+        height: 300px;
+    }
+
+    .experience-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-cta h2 {
+        font-size: 30px;
+    }
+}
 
 </style>
 
+
+<!-- ABOUT HERO -->
+
+<section class="about-hero">
+
+    <div class="about-hero-content">
+
+        <span class="about-label">
+            SPEC1METALWORKS
+        </span>
+
+        <h1>
+            About Our Company
+        </h1>
+
+        <p>
+            Reliable metal fabrication and welding solutions
+            built with quality, precision and professional
+            workmanship.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- COMPANY STORY -->
+
+<section class="story-section">
+
+    <div class="story-container">
+
+        <div class="story-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1000"
+                alt="Spec1metalworks fabrication work"
+            >
+
+        </div>
+
+
+        <div class="story-content">
+
+            <span>
+                WHO WE ARE
+            </span>
+
+            <h2>
+                Strong Work.
+                Reliable Results.
+            </h2>
+
+            <p>
+                Spec1metalworks provides professional metal
+                fabrication and welding solutions for residential,
+                commercial and industrial requirements.
+            </p>
+
+            <p>
+                Our work focuses on quality materials, accurate
+                fabrication, strong welding and professional
+                finishing.
+            </p>
+
+            <p>
+                From structural fabrication to custom metal
+                works, we aim to deliver practical solutions
+                according to every project's requirements.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section class="experience-section">
+
+    <div class="experience-container">
+
+        <span class="about-label">
+            OUR CAPABILITIES
+        </span>
+
+        <h2>
+            What We Do
+        </h2>
+
+
+        <div class="experience-grid">
+
+            <div class="experience-box">
+
+                <i class="fa-solid fa-industry"></i>
+
+                <h3>
+                    Industrial Fabrication
+                </h3>
+
+                <p>
+                    Structural and industrial fabrication
+                    solutions designed for strength and
+                    durability.
+                </p>
+
+            </div>
+
+
+            <div class="experience-box">
+
+                <i class="fa-solid fa-fire"></i>
+
+                <h3>
+                    Professional Welding
+                </h3>
+
+                <p>
+                    MIG, TIG and ARC welding services
+                    for different metal fabrication needs.
+                </p>
+
+            </div>
+
+
+            <div class="experience-box">
+
+                <i class="fa-solid fa-gears"></i>
+
+                <h3>
+                    Custom Solutions
+                </h3>
+
+                <p>
+                    Custom gates, railings, staircases and
+                    other metal structures based on your
+                    requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- OUR VALUES -->
+
+<section class="values-section">
+
+    <div class="values-container">
+
+        <span class="about-label">
+            OUR VALUES
+        </span>
+
+        <h2>
+            Principles Behind Our Work
+        </h2>
+
+
+        <div class="values-grid">
+
+            <div class="value-box">
+
+                <i class="fa-solid fa-medal"></i>
+
+                <h3>
+                    Quality
+                </h3>
+
+                <p>
+                    We focus on quality materials,
+                    fabrication and finishing.
+                </p>
+
+            </div>
+
+
+            <div class="value-box">
+
+                <i class="fa-solid fa-ruler-combined"></i>
+
+                <h3>
+                    Precision
+                </h3>
+
+                <p>
+                    Accurate measurements and attention
+                    to detail are important in every project.
+                </p>
+
+            </div>
+
+
+            <div class="value-box">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <h3>
+                    Reliability
+                </h3>
+
+                <p>
+                    We aim to provide dependable solutions
+                    for every customer requirement.
+                </p>
+
+            </div>
+
+
+            <div class="value-box">
+
+                <i class="fa-solid fa-user-check"></i>
+
+                <h3>
+                    Customer Focus
+                </h3>
+
+                <p>
+                    We understand requirements and provide
+                    solutions according to the project.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="about-cta">
+
+    <h2>
+        Looking for a Reliable Fabrication Partner?
+    </h2>
+
+    <p>
+        Tell us about your project and requirements.
+    </p>
+
+    <a href="{% url 'contact' %}">
+        Get a Free Quote
+    </a>
+
+</section>
 
 
 {% endblock %}

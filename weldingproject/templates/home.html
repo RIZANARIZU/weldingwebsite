@@ -1,182 +1,988 @@
 {% extends 'style.html' %}
 
 {% block title %}
-SpecMetal Works | Home
+Spec1metalworks | Home
 {% endblock %}
 
 
 {% block content %}
 
-<section class="hero">
+<style>
 
-<div>
+/* ================================
+   HOME HERO
+================================ */
 
-<h1>
-Professional Fabrication & Welding Solutions
-</h1>
+.home-hero {
 
-<p>
-Steel Fabrication • Structural Welding • Industrial Maintenance • Custom Metal Works
-</p>
+    min-height: 88vh;
 
-<a href="{% url 'contact' %}" class="btn">
-Get Free Quote
-</a>
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.72),
+            rgba(0,0,0,0.72)
+        ),
+        url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1800");
 
-</div>
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+
+    color: white;
+
+    padding: 80px 8%;
+
+}
+
+
+.hero-content {
+
+    max-width: 850px;
+
+}
+
+
+.hero-tag {
+
+    display: inline-block;
+
+    color: #ff9800;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.home-hero h1 {
+
+    font-size: 58px;
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    margin-bottom: 25px;
+
+}
+
+
+.home-hero p {
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    color: #e5e5e5;
+
+    max-width: 750px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.hero-btn {
+
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    background: #ff9800;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+
+.hero-btn:hover {
+
+    background: #d97706;
+
+    color: white;
+
+    transform: translateY(-3px);
+
+}
+
+
+.hero-btn-outline {
+
+    display: inline-block;
+
+    padding: 13px 30px;
+
+    border: 2px solid white;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+
+.hero-btn-outline:hover {
+
+    background: white;
+
+    color: #111;
+
+}
+
+
+/* ================================
+   INTRO SECTION
+================================ */
+
+.intro-section {
+
+    padding: 90px 8%;
+
+    background: white;
+
+}
+
+
+.intro-container {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+
+}
+
+
+.intro-image img {
+
+    width: 100%;
+
+    height: 420px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+}
+
+
+.intro-content span {
+
+    color: #ff9800;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+
+.intro-content h2 {
+
+    font-size: 40px;
+
+    margin: 15px 0 20px;
+
+    color: #222;
+
+}
+
+
+.intro-content p {
+
+    color: #555;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+
+}
+
+
+.intro-list {
+
+    margin-top: 25px;
+
+    padding: 0;
+
+    list-style: none;
+
+}
+
+
+.intro-list li {
+
+    margin: 13px 0;
+
+    font-weight: 600;
+
+}
+
+
+.intro-list i {
+
+    color: #ff9800;
+
+    margin-right: 10px;
+
+}
+
+
+/* ================================
+   SERVICES
+================================ */
+
+.home-services {
+
+    background: #f5f5f5;
+
+    padding: 90px 8%;
+
+    text-align: center;
+
+}
+
+
+.section-label {
+
+    color: #ff9800;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+
+.home-services h2 {
+
+    font-size: 40px;
+
+    margin: 15px 0 45px;
+
+    color: #222;
+
+}
+
+
+.service-grid {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.service-box {
+
+    background: white;
+
+    padding: 40px 25px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+
+}
+
+
+.service-box:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+}
+
+
+.service-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: auto auto 20px;
+
+    background: #fff3df;
+
+    color: #ff9800;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 28px;
+
+}
+
+
+.service-box h3 {
+
+    margin-bottom: 15px;
+
+    color: #222;
+
+}
+
+
+.service-box p {
+
+    color: #666;
+
+    line-height: 1.7;
+
+}
+
+
+/* ================================
+   WHY CHOOSE US
+================================ */
+
+.why-section {
+
+    background: #171717;
+
+    color: white;
+
+    padding: 90px 8%;
+
+}
+
+
+.why-container {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+
+.why-container h2 {
+
+    font-size: 40px;
+
+    margin: 15px 0 45px;
+
+}
+
+
+.why-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.why-box {
+
+    padding: 30px 20px;
+
+    border: 1px solid #444;
+
+    border-radius: 10px;
+
+}
+
+
+.why-box i {
+
+    font-size: 32px;
+
+    color: #ff9800;
+
+    margin-bottom: 20px;
+
+}
+
+
+.why-box h3 {
+
+    margin-bottom: 10px;
+
+}
+
+
+.why-box p {
+
+    color: #bbb;
+
+    line-height: 1.6;
+
+}
+
+
+/* ================================
+   CTA
+================================ */
+
+.home-cta {
+
+    background: #ff9800;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 75px 20px;
+
+}
+
+
+.home-cta h2 {
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.home-cta p {
+
+    font-size: 18px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.cta-btn {
+
+    display: inline-block;
+
+    background: #111;
+
+    color: white;
+
+    padding: 14px 32px;
+
+    border-radius: 5px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+
+.cta-btn:hover {
+
+    background: #333;
+
+    color: white;
+
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 900px) {
+
+    .home-hero h1 {
+
+        font-size: 45px;
+
+    }
+
+
+    .intro-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .service-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+
+    .why-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .home-hero {
+
+        min-height: 78vh;
+
+        padding: 60px 20px;
+
+    }
+
+
+    .home-hero h1 {
+
+        font-size: 34px;
+
+    }
+
+
+    .home-hero p {
+
+        font-size: 17px;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .hero-btn,
+    .hero-btn-outline {
+
+        text-align: center;
+
+        width: 100%;
+
+    }
+
+
+    .intro-section,
+    .home-services,
+    .why-section {
+
+        padding: 60px 20px;
+
+    }
+
+
+    .intro-content h2,
+    .home-services h2,
+    .why-container h2 {
+
+        font-size: 30px;
+
+    }
+
+
+    .intro-image img {
+
+        height: 300px;
+
+    }
+
+
+    .service-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .why-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .home-cta h2 {
+
+        font-size: 30px;
+
+    }
+
+}
+
+</style>
+
+
+<!-- ================================
+     HERO
+================================ -->
+
+<section class="home-hero">
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            SPEC1METALWORKS
+        </span>
+
+        <h1>
+            Engineering Excellence in
+            Metal Fabrication
+        </h1>
+
+        <p>
+            Professional steel fabrication, structural welding,
+            industrial maintenance and custom metal work
+            for residential, commercial and industrial projects.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="{% url 'contact' %}"
+                class="hero-btn"
+            >
+                Get a Free Quote
+            </a>
+
+
+            <a
+                href="{% url 'projects' %}"
+                class="hero-btn-outline"
+            >
+                View Our Projects
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<section class="services">
+<!-- ================================
+     INTRO
+================================ -->
 
-<h2>
-Our Services
-</h2>
+<section class="intro-section">
 
-
-<div class="cards">
-
-
-<div class="card">
-<h3>Steel Fabrication</h3>
-<p>
-Industrial and Structural Fabrication.
-</p>
-</div>
+    <div class="intro-container">
 
 
+        <div class="intro-image">
 
-<div class="card">
-<h3>Welding</h3>
-<p>
-MIG • TIG • ARC Welding.
-</p>
-</div>
+            <img
+                src="https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1000"
+                alt="Metal fabrication work"
+            >
 
-
-
-<div class="card">
-<h3>Custom Metal Works</h3>
-<p>
-Gate, Railing, Staircase and Steel Works.
-</p>
-</div>
+        </div>
 
 
-</div>
+        <div class="intro-content">
+
+            <span>
+                ABOUT OUR COMPANY
+            </span>
+
+            <h2>
+                Built with Strength.
+                Finished with Precision.
+            </h2>
+
+            <p>
+                Spec1metalworks provides reliable metal fabrication
+                and welding solutions with a focus on quality,
+                precision and professional workmanship.
+            </p>
+
+
+            <ul class="intro-list">
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Quality Fabrication
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Skilled Welding
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Reliable Project Delivery
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Custom Metal Solutions
+                </li>
+
+            </ul>
+
+
+            <br>
+
+            <a
+                href="{% url 'about' %}"
+                class="hero-btn"
+            >
+                Learn More About Us
+            </a>
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
+<!-- ================================
+     SERVICES
+================================ -->
 
-<section class="about">
+<section class="home-services">
 
-<h2>
-About SpecMetal Works
-</h2>
+    <span class="section-label">
+        WHAT WE DO
+    </span>
 
-<p>
-We provide high-quality fabrication and welding solutions for residential,
-commercial and industrial projects with experienced professionals.
-</p>
+    <h2>
+        Our Core Services
+    </h2>
+
+
+    <div class="service-grid">
+
+
+        <div class="service-box">
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-industry"></i>
+
+            </div>
+
+            <h3>
+                Steel Fabrication
+            </h3>
+
+            <p>
+                Structural and industrial steel fabrication
+                designed for strength, durability and precision.
+            </p>
+
+        </div>
+
+
+        <div class="service-box">
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-fire"></i>
+
+            </div>
+
+            <h3>
+                Welding Services
+            </h3>
+
+            <p>
+                Professional MIG, TIG and ARC welding
+                for different metal fabrication requirements.
+            </p>
+
+        </div>
+
+
+        <div class="service-box">
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+            </div>
+
+            <h3>
+                Custom Metal Works
+            </h3>
+
+            <p>
+                Gates, railings, staircases and custom
+                metal structures built to your requirements.
+            </p>
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
+<!-- ================================
+     WHY CHOOSE US
+================================ -->
 
-<section class="contact">
+<section class="why-section">
 
-<h2>
-Need a Fabrication Partner?
-</h2>
+    <div class="why-container">
 
-<p>
-📞 Call Us : +91 8547423559
-</p>
+        <span class="section-label">
+            WHY SPEC1METALWORKS
+        </span>
 
-<p>
-✉ Email : info@specmetalworks.com
-</p>
+        <h2>
+            What We Focus On
+        </h2>
 
-<br>
 
-<a href="{% url 'contact' %}" class="btn">
-Contact Now
-</a>
+        <div class="why-grid">
+
+
+            <div class="why-box">
+
+                <i class="fa-solid fa-medal"></i>
+
+                <h3>
+                    Quality
+                </h3>
+
+                <p>
+                    Quality-focused fabrication and finishing.
+                </p>
+
+            </div>
+
+
+            <div class="why-box">
+
+                <i class="fa-solid fa-ruler-combined"></i>
+
+                <h3>
+                    Precision
+                </h3>
+
+                <p>
+                    Accurate work with attention to detail.
+                </p>
+
+            </div>
+
+
+            <div class="why-box">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <h3>
+                    Reliability
+                </h3>
+
+                <p>
+                    Professional project planning and delivery.
+                </p>
+
+            </div>
+
+
+            <div class="why-box">
+
+                <i class="fa-solid fa-gears"></i>
+
+                <h3>
+                    Custom Solutions
+                </h3>
+
+                <p>
+                    Fabrication solutions based on your needs.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </section>
 
-<section class="reviews">
 
-<h2>
-Customer Reviews
-</h2>
+<!-- ================================
+     CALL TO ACTION
+================================ -->
 
+<section class="home-cta">
 
-<div class="review-cards">
+    <h2>
+        Have a Fabrication Project?
+    </h2>
 
-
-<div class="review-card">
-
-<h3>
-Rahul
-</h3>
-
-<div class="stars">
-★★★★★
-</div>
-
-<p>
-Excellent fabrication work. Quality finishing and professional service.
-</p>
-
-</div>
+    <p>
+        Let's discuss your requirements and build the right solution.
+    </p>
 
 
-
-<div class="review-card">
-
-<h3>
-Arun
-</h3>
-
-<div class="stars">
-★★★★★
-</div>
-
-<p>
-Good welding team. Completed our industrial project on time.
-</p>
-
-</div>
-
-
-
-<div class="review-card">
-
-<h3>
-Suresh
-</h3>
-
-<div class="stars">
-★★★★☆
-</div>
-
-<p>
-Affordable price and good customer support.
-</p>
-
-</div>
-
-
-</div>
-
-
-<h3 class="rating">
-Overall Rating : ⭐⭐⭐⭐⭐ 4.8 / 5
-</h3>
-
+    <a
+        href="{% url 'contact' %}"
+        class="cta-btn"
+    >
+        Contact Spec1metalworks
+    </a>
 
 </section>
 

@@ -1,152 +1,452 @@
 {% extends 'style.html' %}
 
 {% block title %}
-Projects | SpecMetal Works
+Spec1metalworks | Projects
 {% endblock %}
-
 
 {% block content %}
 
-
 <style>
 
-.banner{
+/* PROJECT HERO */
+.project-hero {
+    min-height: 55vh;
 
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:50px;
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.75),
+            rgba(0,0,0,0.75)
+        ),
+        url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    color: white;
+
+    padding: 60px 20px;
+}
+
+.project-hero-content {
+    max-width: 850px;
+}
+
+.project-label {
+    color: #ff9800;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.project-hero h1 {
+    font-size: 55px;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+.project-hero p {
+    color: #ddd;
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+
+/* PROJECT SECTION */
+
+.projects-section {
+    background: #f5f5f5;
+    padding: 90px 8%;
+}
+
+.projects-heading {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.projects-heading h2 {
+    font-size: 40px;
+    color: #222;
+    margin: 15px 0;
+}
+
+.projects-heading p {
+    color: #666;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* PROJECT GRID */
+
+.project-grid {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+/* PROJECT CARD */
+
+.project-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.10);
+
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.18);
+}
+
+
+/* IMAGE */
+
+.project-image {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.08);
+}
+
+
+/* IMAGE OVERLAY */
+
+.project-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,0.75)
+        );
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 20px;
+
+    color: white;
+}
+
+.project-overlay span {
+    background: #ff9800;
+    padding: 7px 14px;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* CARD CONTENT */
+
+.project-content {
+    padding: 25px;
+}
+
+.project-content h3 {
+    color: #222;
+    font-size: 23px;
+
+    margin-bottom: 12px;
+}
+
+.project-content p {
+    color: #666;
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* EMPTY STATE */
+
+.empty-projects {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    background: white;
+
+    padding: 60px 20px;
+
+    border-radius: 12px;
+}
+
+.empty-projects i {
+    font-size: 50px;
+    color: #ff9800;
+
+    margin-bottom: 20px;
+}
+
+.empty-projects h3 {
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.empty-projects p {
+    color: #666;
+}
+
+
+/* CTA */
+
+.projects-cta {
+    background: #ff9800;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 75px 20px;
+}
+
+.projects-cta h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.projects-cta p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.projects-cta a {
+    display: inline-block;
+
+    background: #111;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 14px 32px;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.projects-cta a:hover {
+    background: #333;
+    color: white;
+}
+
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+    .project-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 
 }
 
 
-.banner h1{
+/* MOBILE */
 
-    font-size:40px;
+@media (max-width: 700px) {
 
-}
+    .project-hero {
+        min-height: 50vh;
+    }
 
+    .project-hero h1 {
+        font-size: 35px;
+    }
 
-.projects{
+    .project-hero p {
+        font-size: 16px;
+    }
 
-    padding:70px 8%;
+    .projects-section {
+        padding: 60px 20px;
+    }
 
-}
+    .projects-heading h2 {
+        font-size: 30px;
+    }
 
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
 
-.project-container{
+    .project-image {
+        height: 240px;
+    }
 
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
-
-}
-
-
-
-.project-card{
-
-    background:white;
-    width:320px;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-
-}
-
-
-
-.project-card img{
-
-    width:100%;
-    height:220px;
-    object-fit:cover;
+    .projects-cta h2 {
+        font-size: 30px;
+    }
 
 }
-
-
-
-.project-card h3{
-
-    color:#ff9800;
-    padding:15px;
-
-}
-
-
-
-.project-card p{
-
-    padding:0 15px 20px;
-    color:#555;
-    line-height:1.6;
-
-}
-
 
 </style>
 
 
+<!-- HERO -->
 
-<section class="banner">
+<section class="project-hero">
 
-<h1>
-Our Projects
-</h1>
+    <div class="project-hero-content">
+
+        <span class="project-label">
+            SPEC1METALWORKS
+        </span>
+
+        <h1>
+            Our Projects
+        </h1>
+
+        <p>
+            Explore our fabrication, welding and custom
+            metal work projects.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="projects-section">
+
+    <div class="projects-heading">
+
+        <span class="project-label">
+            OUR WORK
+        </span>
+
+        <h2>
+            Featured Projects
+        </h2>
+
+        <p>
+            A collection of our completed and ongoing
+            fabrication projects, created with attention
+            to strength, precision and finishing.
+        </p>
+
+    </div>
+
+
+    <div class="project-grid">
+
+
+        {% for p in projects %}
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img
+                    src="{{ p.image.url }}"
+                    alt="{{ p.title }}"
+                >
+
+                <div class="project-overlay">
+
+                    <span>
+                        FABRICATION PROJECT
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-content">
+
+                <h3>
+                    {{ p.title }}
+                </h3>
+
+                <p>
+                    {{ p.description }}
+                </p>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="empty-projects">
+
+            <i class="fa-solid fa-industry"></i>
+
+            <h3>
+                Projects Coming Soon
+            </h3>
+
+            <p>
+                Our project gallery will be updated
+                with new fabrication works.
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+
+    </div>
 
 </section>
 
 
+<!-- CTA -->
 
+<section class="projects-cta">
 
-<section class="projects">
+    <h2>
+        Have a Project in Mind?
+    </h2>
 
+    <p>
+        Let's discuss your fabrication requirements.
+    </p>
 
-<div class="project-container">
-
-
-
-{% for p in projects %}
-
-
-<div class="project-card">
-
-
-<img src="{{ p.image.url }}" alt="{{ p.title }}">
-
-
-<h3>
-{{ p.title }}
-</h3>
-
-
-<p>
-{{ p.description }}
-</p>
-
-
-</div>
-
-
-
-{% empty %}
-
-
-<h2>
-No Projects Added
-</h2>
-
-
-{% endfor %}
-
-
-
-</div>
-
+    <a href="{% url 'contact' %}">
+        Start Your Project
+    </a>
 
 </section>
-
 
 
 {% endblock %}

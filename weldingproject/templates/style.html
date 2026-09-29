@@ -2,27 +2,56 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpecMetal Works</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>
+        {% block title %}
+        Spec1metalworks
+        {% endblock %}
+    </title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- AOS Animation -->
+    <link
+        href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+        rel="stylesheet"
+    >
+
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+
         body {
             background: #f5f5f5;
             font-family: Arial, Helvetica, sans-serif;
             overflow-x: hidden;
         }
+
+
+        /* =========================
+           LOADER
+        ========================= */
 
         #loader {
             position: fixed;
@@ -36,15 +65,24 @@
             z-index: 99999;
         }
 
+
         #loader h2 {
             animation: pulse 1s infinite;
         }
 
+
         @keyframes pulse {
+
             50% {
                 transform: scale(1.2);
             }
+
         }
+
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             background: #111;
@@ -53,15 +91,18 @@
             z-index: 1000;
         }
 
+
         .navbar {
             padding: 15px 5%;
         }
+
 
         .navbar-brand {
             color: #ff9800 !important;
             font-size: 25px;
             font-weight: bold;
         }
+
 
         .navbar-nav .nav-link {
             color: white !important;
@@ -70,21 +111,30 @@
             transition: 0.3s;
         }
 
+
         .navbar-nav .nav-link:hover {
             color: #ff9800 !important;
         }
+
 
         .navbar-toggler {
             border: 1px solid #ff9800;
         }
 
+
         .navbar-toggler:focus {
             box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.3);
         }
 
+
         .navbar-toggler-icon {
             filter: invert(1);
         }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
 
         .btn-main {
             display: inline-block;
@@ -98,29 +148,41 @@
             transition: 0.3s;
         }
 
+
         .btn-main:hover {
             background: #d97706;
             color: white;
             transform: translateY(-2px);
         }
 
+
+        /* =========================
+           HERO
+        ========================= */
+
         .hero {
             min-height: 90vh;
+
             background:
                 linear-gradient(
                     rgba(0, 0, 0, 0.7),
                     rgba(0, 0, 0, 0.7)
                 ),
                 url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600");
+
             background-size: cover;
             background-position: center;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             text-align: center;
             color: white;
+
             padding: 60px 20px;
         }
+
 
         .hero h1 {
             font-size: 55px;
@@ -128,20 +190,28 @@
             font-weight: bold;
         }
 
+
         .hero p {
             font-size: 20px;
             margin-bottom: 30px;
         }
+
+
+        /* =========================
+           SERVICES
+        ========================= */
 
         .services {
             padding: 70px 8%;
             text-align: center;
         }
 
+
         .services h2 {
             font-size: 38px;
             margin-bottom: 40px;
         }
+
 
         .cards {
             display: flex;
@@ -150,23 +220,34 @@
             flex-wrap: wrap;
         }
 
+
         .card {
             background: white;
             width: 300px;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.2);
+
             transition: 0.3s;
         }
+
 
         .card:hover {
             transform: translateY(-8px);
         }
 
+
         .card h3 {
             color: #ff9800;
             margin-bottom: 15px;
         }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
 
         .about {
             background: #222;
@@ -175,9 +256,15 @@
             text-align: center;
         }
 
+
         .about h2 {
             margin-bottom: 20px;
         }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
 
         .contact {
             background: #ff9800;
@@ -186,10 +273,16 @@
             text-align: center;
         }
 
+
         .contact h2 {
             font-size: 35px;
             margin-bottom: 20px;
         }
+
+
+        /* =========================
+           REVIEWS
+        ========================= */
 
         .reviews {
             padding: 70px 8%;
@@ -197,10 +290,12 @@
             text-align: center;
         }
 
+
         .reviews h2 {
             font-size: 38px;
             margin-bottom: 40px;
         }
+
 
         .review-cards {
             display: flex;
@@ -209,18 +304,23 @@
             flex-wrap: wrap;
         }
 
+
         .review-card {
             background: #f5f5f5;
             width: 300px;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.2);
         }
+
 
         .review-card h3 {
             color: #ff9800;
             margin-bottom: 10px;
         }
+
 
         .stars {
             color: #ff9800;
@@ -228,10 +328,12 @@
             margin: 15px 0;
         }
 
+
         .review-card p {
             color: #555;
             line-height: 1.6;
         }
+
 
         .rating {
             margin-top: 40px;
@@ -239,29 +341,50 @@
             font-size: 24px;
         }
 
+
+        /* =========================
+           WHATSAPP
+        ========================= */
+
         .whatsapp {
             position: fixed;
+
             bottom: 20px;
             right: 20px;
+
             width: 60px;
             height: 60px;
+
             background: #25D366;
             color: white;
+
             border-radius: 50%;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             font-size: 32px;
             text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+            box-shadow:
+                0 4px 10px rgba(0, 0, 0, 0.3);
+
             z-index: 9999;
+
             transition: 0.3s;
         }
+
 
         .whatsapp:hover {
             transform: scale(1.1);
             color: white;
         }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             background: #111;
@@ -270,49 +393,64 @@
             padding: 20px;
         }
 
+
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 768px) {
+
             .navbar {
                 padding: 12px 20px;
             }
 
+
             .navbar-brand {
                 font-size: 21px;
             }
+
 
             .navbar-nav {
                 text-align: center;
                 padding-top: 10px;
             }
 
+
             .navbar-nav .nav-link {
                 margin-left: 0;
                 padding: 10px;
             }
+
 
             .hero {
                 min-height: 75vh;
                 padding: 40px 20px;
             }
 
+
             .hero h1 {
                 font-size: 35px;
                 line-height: 1.2;
             }
+
 
             .hero p {
                 font-size: 17px;
                 line-height: 1.6;
             }
 
+
             .services,
             .reviews {
                 padding: 50px 20px;
             }
 
+
             .services h2,
             .reviews h2 {
                 font-size: 30px;
             }
+
 
             .card,
             .review-card {
@@ -320,154 +458,268 @@
                 max-width: 360px;
             }
 
+
             .about,
             .contact {
                 padding: 50px 20px;
             }
 
+
             .contact h2 {
                 font-size: 30px;
             }
 
+
             .whatsapp {
                 width: 55px;
                 height: 55px;
+
                 right: 15px;
                 bottom: 15px;
+
                 font-size: 28px;
             }
+
 
             footer {
                 font-size: 14px;
                 padding: 18px 10px;
             }
+
         }
 
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
         @media (max-width: 400px) {
+
             .hero h1 {
                 font-size: 30px;
             }
+
 
             .hero p {
                 font-size: 16px;
             }
 
+
             .btn-main {
                 font-size: 16px;
                 padding: 12px 24px;
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
+    <!-- =========================
+         LOADER
+    ========================= -->
+
     <div id="loader">
-        <h2>SpecMetal Works</h2>
+
+        <h2>
+            Spec1metalworks
+        </h2>
+
     </div>
 
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 
-        <div class="container">
+    <!-- =========================
+         HEADER / NAVBAR
+    ========================= -->
 
-            <a class="navbar-brand fw-bold text-warning"
-               href="{% url 'home' %}">
-                SpecMetal Works
-            </a>
+    <header>
 
-            <!-- Mobile Hamburger -->
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 
-                <span class="navbar-toggler-icon"></span>
+            <div class="container">
 
-            </button>
 
-            <!-- Menu -->
-            <div class="collapse navbar-collapse" id="mainNavbar">
+                <!-- BRAND -->
 
-                <ul class="navbar-nav ms-auto">
+                <a
+                    class="navbar-brand fw-bold text-warning"
+                    href="{% url 'home' %}"
+                >
+                    Spec1metalworks
+                </a>
 
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           href="{% url 'home' %}">
-                            Home
-                        </a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           href="{% url 'about' %}">
-                            About
-                        </a>
-                    </li>
+                <!-- MOBILE HAMBURGER -->
 
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           href="{% url 'services' %}">
-                            Services
-                        </a>
-                    </li>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
 
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           href="{% url 'projects' %}">
-                            Projects
-                        </a>
-                    </li>
+                    <span class="navbar-toggler-icon"></span>
 
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           href="{% url 'contact' %}">
-                            Contact
-                        </a>
-                    </li>
+                </button>
 
-                </ul>
+
+                <!-- MENU -->
+
+                <div
+                    class="collapse navbar-collapse"
+                    id="mainNavbar"
+                >
+
+                    <ul class="navbar-nav ms-auto">
+
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link"
+                                href="{% url 'home' %}"
+                            >
+                                Home
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link"
+                                href="{% url 'about' %}"
+                            >
+                                About
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link"
+                                href="{% url 'services' %}"
+                            >
+                                Services
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link"
+                                href="{% url 'projects' %}"
+                            >
+                                Projects
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link"
+                                href="{% url 'contact' %}"
+                            >
+                                Contact
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+
+                </div>
 
             </div>
 
-        </div>
+        </nav>
 
-    </nav>
-</header>
-                   
+    </header>
+
+
+    <!-- =========================
+         PAGE CONTENT
+    ========================= -->
+
     {% block content %}
+
     {% endblock %}
-<a
-    href="https://wa.me/918547423559?text=Hello%20SpecMetal%20Works%2C%20I%20need%20a%20quotation."
-    class="whatsapp"
-    target="_blank"
-    aria-label="Contact SpecMetal Works on WhatsApp"
->
-    <i class="fab fa-whatsapp"></i>
-</a>
 
-   <footer>
-    © 2026 SpecMetal Works | All Rights Reserved
-</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- =========================
+         WHATSAPP BUTTON
+    ========================= -->
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <a
+        href="https://wa.me/918547423559?text=Hello%20Spec1metalworks%2C%20I%20need%20a%20quotation"
+        class="whatsapp"
+        target="_blank"
+        rel="noopener"
+        aria-label="Contact Spec1metalworks on WhatsApp"
+    >
 
-<script>
-    AOS.init({
-        duration: 1000,
-        once: true
-    });
+        <i class="fab fa-whatsapp"></i>
 
-    window.onload = function () {
-        document.getElementById("loader").style.display = "none";
-    };
-</script>
+    </a>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        © 2026 Spec1metalworks | All Rights Reserved
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    <!-- AOS JS -->
+
+    <script
+        src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+    </script>
+
+
+    <script>
+
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+
+        window.onload = function () {
+
+            document.getElementById("loader").style.display = "none";
+
+        };
+
+    </script>
+
 
 </body>
+
 </html>

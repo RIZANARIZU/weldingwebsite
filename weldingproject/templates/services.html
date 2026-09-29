@@ -1,196 +1,559 @@
 {% extends 'style.html' %}
 
+{% block title %}
+Spec1metalworks | Services
+{% endblock %}
 
 {% block content %}
 
-
 <style>
 
-.banner{
+/* SERVICES HERO */
+.services-hero {
+    min-height: 55vh;
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.75),
+            rgba(0,0,0,0.75)
+        ),
+        url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1600");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 60px 20px;
+}
 
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:50px;
+.services-hero-content {
+    max-width: 850px;
+}
 
+.services-label {
+    color: #ff9800;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.services-hero h1 {
+    font-size: 55px;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+.services-hero p {
+    color: #ddd;
+    font-size: 19px;
+    line-height: 1.7;
 }
 
 
-.banner h1{
+/* SERVICES INTRO */
+.services-intro {
+    background: white;
+    padding: 80px 8%;
+    text-align: center;
+}
 
-    font-size:40px;
+.services-intro-content {
+    max-width: 800px;
+    margin: auto;
+}
 
+.services-intro h2 {
+    font-size: 40px;
+    color: #222;
+    margin: 15px 0 20px;
+}
+
+.services-intro p {
+    color: #666;
+    font-size: 17px;
+    line-height: 1.8;
 }
 
 
+/* SERVICE CARDS */
+.services-list {
+    background: #f5f5f5;
+    padding: 90px 8%;
+}
 
-.services{
+.services-grid {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
 
-    padding:70px 8%;
-    text-align:center;
+.service-card {
+    background: white;
+    border-radius: 12px;
+    padding: 40px 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    border-bottom: 4px solid transparent;
+}
 
+.service-card:hover {
+    transform: translateY(-10px);
+    border-bottom-color: #ff9800;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    background: #fff3df;
+    color: #ff9800;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.service-card h3 {
+    color: #222;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #666;
+    line-height: 1.7;
 }
 
 
-.services h2{
+/* PROCESS */
+.process-section {
+    background: #171717;
+    color: white;
+    padding: 90px 8%;
+    text-align: center;
+}
 
-    font-size:35px;
-    margin-bottom:40px;
+.process-section h2 {
+    font-size: 40px;
+    margin: 15px 0 50px;
+}
 
+.process-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.process-box {
+    padding: 30px 20px;
+}
+
+.process-number {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #ff9800;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.process-box h3 {
+    margin-bottom: 10px;
+}
+
+.process-box p {
+    color: #bbb;
+    line-height: 1.6;
 }
 
 
+/* CTA */
+.services-cta {
+    background: #ff9800;
+    color: white;
+    text-align: center;
+    padding: 75px 20px;
+}
 
-.cards{
+.services-cta h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
 
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
+.services-cta p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
 
+.services-cta a {
+    display: inline-block;
+    background: #111;
+    color: white;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.services-cta a:hover {
+    background: #333;
+    color: white;
 }
 
 
+/* MOBILE */
+@media (max-width: 900px) {
 
-.card{
+    .services-hero h1 {
+        font-size: 45px;
+    }
 
-    background:white;
-    width:300px;
-    padding:35px;
-    border-radius:10px;
+    .services-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-
+    .process-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
+@media (max-width: 600px) {
 
+    .services-hero {
+        min-height: 50vh;
+    }
 
-.card h3{
+    .services-hero h1 {
+        font-size: 34px;
+    }
 
-    color:#ff9800;
-    margin-bottom:15px;
-    font-size:24px;
+    .services-hero p {
+        font-size: 16px;
+    }
+
+    .services-intro,
+    .services-list,
+    .process-section {
+        padding: 60px 20px;
+    }
+
+    .services-intro h2,
+    .process-section h2 {
+        font-size: 30px;
+    }
+
+    .services-grid,
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-cta h2 {
+        font-size: 30px;
+    }
 
 }
-
-
-
-.card p{
-
-    color:#555;
-    line-height:1.7;
-
-}
-
-
-
-.card:hover{
-
-    transform:translateY(-10px);
-    transition:.3s;
-
-}
-
 
 </style>
 
 
+<!-- HERO -->
+
+<section class="services-hero">
+
+    <div class="services-hero-content">
+
+        <span class="services-label">
+            SPEC1METALWORKS
+        </span>
+
+        <h1>
+            Our Services
+        </h1>
+
+        <p>
+            Professional fabrication, welding and custom
+            metal solutions for residential, commercial
+            and industrial projects.
+        </p>
+
+    </div>
+
+</section>
 
 
-<section class="banner">
+<!-- INTRO -->
 
-<h1>
-Our Services
-</h1>
+<section class="services-intro">
+
+    <div class="services-intro-content">
+
+        <span class="services-label">
+            WHAT WE DO
+        </span>
+
+        <h2>
+            Complete Metal Fabrication Solutions
+        </h2>
+
+        <p>
+            From structural steel fabrication to custom
+            metal works, Spec1metalworks provides practical
+            and reliable solutions designed around your
+            project requirements.
+        </p>
+
+    </div>
 
 </section>
 
 
+<!-- SERVICES -->
+
+<section class="services-list">
+
+    <div class="services-grid">
 
 
-<section class="services">
+        <!-- SERVICE 1 -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                <i class="fa-solid fa-industry"></i>
+            </div>
+
+            <h3>
+                Steel Fabrication
+            </h3>
+
+            <p>
+                Structural and industrial steel fabrication
+                for strong, durable and reliable structures.
+            </p>
+
+        </div>
 
 
-<h2>
-What We Provide
-</h2>
+        <!-- SERVICE 2 -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                <i class="fa-solid fa-fire"></i>
+            </div>
+
+            <h3>
+                Welding Services
+            </h3>
+
+            <p>
+                MIG, TIG and ARC welding for different
+                fabrication and metal joining requirements.
+            </p>
+
+        </div>
 
 
+        <!-- SERVICE 3 -->
 
-<div class="cards">
+        <div class="service-card">
 
+            <div class="service-icon">
+                <i class="fa-solid fa-door-open"></i>
+            </div>
 
+            <h3>
+                Gates & Grills
+            </h3>
 
-<div class="card">
+            <p>
+                Custom-designed steel gates, grills and
+                entrance structures built to your needs.
+            </p>
 
-<h3>
-Steel Fabrication
-</h3>
-
-<p>
-High quality structural steel fabrication
-for residential, commercial and industrial projects.
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>
-Welding Works
-</h3>
-
-<p>
-Professional MIG, TIG and ARC welding
-with experienced welding specialists.
-</p>
-
-</div>
+        </div>
 
 
+        <!-- SERVICE 4 -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                <i class="fa-solid fa-stairs"></i>
+            </div>
+
+            <h3>
+                Staircases & Railings
+            </h3>
+
+            <p>
+                Strong and practical staircases, handrails
+                and railing systems for different projects.
+            </p>
+
+        </div>
 
 
+        <!-- SERVICE 5 -->
 
-<div class="card">
+        <div class="service-card">
 
-<h3>
-Custom Metal Works
-</h3>
+            <div class="service-icon">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
 
-<p>
-Custom gates, railings, staircases and
-special metal designs.
-</p>
+            <h3>
+                Custom Metal Works
+            </h3>
 
-</div>
+            <p>
+                Custom fabrication solutions developed
+                according to your specific requirements.
+            </p>
 
-
-
-
-
-<div class="card">
-
-<h3>
-Industrial Maintenance
-</h3>
-
-<p>
-Machine repair, maintenance and industrial
-metal solutions.
-</p>
-
-</div>
+        </div>
 
 
+        <!-- SERVICE 6 -->
 
-</div>
+        <div class="service-card">
 
+            <div class="service-icon">
+                <i class="fa-solid fa-gears"></i>
+            </div>
+
+            <h3>
+                Industrial Maintenance
+            </h3>
+
+            <p>
+                Metal repair, fabrication and maintenance
+                support for industrial requirements.
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
+
+<!-- PROCESS -->
+
+<section class="process-section">
+
+    <span class="services-label">
+        OUR PROCESS
+    </span>
+
+    <h2>
+        How We Work
+    </h2>
+
+
+    <div class="process-grid">
+
+        <div class="process-box">
+
+            <div class="process-number">
+                01
+            </div>
+
+            <h3>
+                Discuss
+            </h3>
+
+            <p>
+                Understand your project and requirements.
+            </p>
+
+        </div>
+
+
+        <div class="process-box">
+
+            <div class="process-number">
+                02
+            </div>
+
+            <h3>
+                Plan
+            </h3>
+
+            <p>
+                Plan the fabrication and required materials.
+            </p>
+
+        </div>
+
+
+        <div class="process-box">
+
+            <div class="process-number">
+                03
+            </div>
+
+            <h3>
+                Fabricate
+            </h3>
+
+            <p>
+                Execute the fabrication and welding work.
+            </p>
+
+        </div>
+
+
+        <div class="process-box">
+
+            <div class="process-number">
+                04
+            </div>
+
+            <h3>
+                Deliver
+            </h3>
+
+            <p>
+                Complete the work with proper finishing.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="services-cta">
+
+    <h2>
+        Have a Metal Fabrication Requirement?
+    </h2>
+
+    <p>
+        Contact Spec1metalworks to discuss your project.
+    </p>
+
+    <a href="{% url 'contact' %}">
+        Request a Free Quote
+    </a>
+
+</section>
 
 
 {% endblock %}
